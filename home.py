@@ -7,5 +7,5 @@ set_shared_config()
 # st.logo(page_logo)
 st.title('_Streamlit_ is :blue[cool] :sunglasses:')
 st.subheader("This is our first app with Streamlit!")
-st.markdown("---")
+# st.markdown("---")
 
