@@ -1,10 +1,16 @@
-from cgitb import small
+import os
 import streamlit as st
 
 
 page_title = ":green[*A*i]*O*S"
 page_caption = "**$P_2O_5$ Analytics**"
 page_logo = "./res/img/logo.png"
+
+# check if file exist
+if not os.path.exists(page_logo):
+    ...
+
+
 
 main_config = dict(
     page_title="ANAPHOS",
@@ -19,30 +25,27 @@ main_config = dict(
     },
 )
 
+def set_shared_config():
+    st.set_page_config(**main_config)
 
-st.set_page_config(**main_config)
-
-st.html(
-    """
-        <style>
-            .st-emotion-cache-1wbqy5l{
-                visibility: hidden;
-            }
-        </style>
+    st.logo(image=page_logo, link=r"http://localhost:8501/")
+    st.html(
         """
-)
-
-with st.sidebar:
-    st.write("Sbakatak")
-    # st.image(image=page_logo, width=35, caption="AiOS")
-
-def main_header():
+            <style>
+                .st-emotion-cache-1wbqy5l{
+                    visibility: hidden;
+                }
+                .st-emotion-cache-ch5dnh ef3psqc5{
+                    visibility: hidden;
+                }
+            </style>
+            """
+    )
+    with st.sidebar:
+        st.write("some app")
     with st.container():
         col_logo, col_title, _ = st.columns([3, 2, 1], gap="small")
-        # col_logo.image(page_logo, width=60, caption="OIS/M")
+        col_logo.image(page_logo, width=60, caption="OIS/M")
         col_title.title(page_title)
         col_title.caption(page_caption)
-
         st.html("""<div class='fixed-header'/><hr/>""")
-        
-main_header()
