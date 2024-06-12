@@ -4,6 +4,9 @@ features = [
     ("Feature C", 0.0, 1.0, 0.1),
     ("Feature D", 0.0, 1.0, 0.1),
     ("Feature E", 0.0, 1.0, 0.1),
+    ("Feature Cat A", ["Triangle", "Cercle", "Squarre"]),
+    ("Feature Cat B", ["Apple", "Orange", "Bannane"]),
+    ("Feature Cat B", ["Young", "Old"]),
 ]
 
 if __name__ == "__main__":

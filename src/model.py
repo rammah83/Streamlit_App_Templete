@@ -19,15 +19,18 @@ import streamlit as st
 # with open('./res/models/model.pkl', 'wb') as file:
 #     pickle.dump(model, file)
 
+
 # @st.cache_resource
 # @lru_cache
 def load_model():
-    return pickle.load(open('./res/models/model.pkl', "rb"))
+    return pickle.load(open("./res/models/model.pkl", "rb"))
+
 
 if __name__ == "__main__":
     import numpy as np
     import sklearn
+
     start = time.perf_counter()
-    result = load_model().predict(np.array([[0.0, .0, .0, .0, .0]]))
+    result = load_model().predict(np.array([[0.0, 0.0, 0.0, 0.0, 0.0]]))
     print(f"{100 * (time.perf_counter() - start):.2f} s")
     print(result.round(2))
