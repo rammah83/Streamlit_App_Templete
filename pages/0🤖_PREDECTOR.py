@@ -1,9 +1,8 @@
-from json import load
 import streamlit as st
 
 
 from utils.config import set_shared_config
-from src.model import load_model
+from src.model import load_model, predict
 from src.helper import features
 
 set_shared_config()
