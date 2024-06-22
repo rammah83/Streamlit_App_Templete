@@ -40,12 +40,6 @@ def set_shared_config():
             </style>
             """
     )
-    with st.sidebar:
-        if st.toggle("Activate feature"):
-            st.write("Feature activated!")
-        else:
-            st.write("some thing")
-
     with st.container():
         col_logo, col_title, _ = st.columns([3, 2, 1], gap="small")
         col_logo.image(page_logo, width=60, caption="OIS/M")
