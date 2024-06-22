@@ -1,23 +1,39 @@
 from pydantic import BaseModel, ValidationError, conlist, conint, constr
 
+models = {
+    "model01": "./res/models/model01.pkl",
+    "model02": "./res/models/model02.pkl",
+}
+
 features = [
-    ("Feature_A", 0.0, 1.0, 0.1),
-    ("Feature_B", 0.0, 1.0, 0.1),
-    ("Feature_C", 0.0, 1.0, 0.1),
-    ("Feature_D", 0.0, 1.0, 0.1),
-    ("Feature_E", 0.0, 1.0, 0.1),
-    # ("Feature_X", ["Triangle", "Cercle", "Squarre"]),
-    # ("Feature_Y", ["Apple", "Orange", "Bannane"]),
-    # ("Feature_Z", ["Young", "Old"]),
+    ("NUM1", 0.0, 1.0, 100.0),
+    ("no_usefull_NUM", 0.0, 1.0, 100.0),
+    ("NUM3", 0.0, 1.0, 100.0),
+    ("with_MISS", 0.0, 1.0, 10.0),
+    ("cor_NUM", 0.0, 1.0, 200.0),
+    # ("weakcor_NUM", 0.0, 1.0, 200.0),
+    # ("strongcor_NUM", 0.0, 1.0, 200.0),
+
+    # ("CAT1", ["A", "B", "C"]),
+    # ("CORR2_CAT1", ["AAA", "BBB", "CCC", "ABD"]),
+    # ("no_usefull_CAT", ["KK", "LL", "MM"]),
+    # ("CORR_CAT3", ["SS", "TT", "UU"]),
 ]
 
 
 class DataToPredict(BaseModel):
-    Feature_A: float
-    Feature_B: float
-    Feature_C: float
-    Feature_D: float
-    Feature_E: float
+    NUM1: float
+    no_usefull_NUM: float
+    NUM3: float
+    with_MISS: float
+    cor_NUM: float
+    # weakcor_NUM: float
+    # strongcor_NUM: float
+    # CAT1: str
+    # CORR2_CAT1: str
+    # no_usefull_CAT: str
+    # CORR_CAT3: str
+
     # Feature_A: conlist(float, min_items=1)
     # Feature_B: conlist(float, min_items=1)
     # Feature_C: conlist(float, min_items=1)

@@ -1,6 +1,7 @@
 import pickle
 from functools import lru_cache
 import time
+from src.helper import models
 
 import streamlit as st
 # from sklearn.datasets import make_regression
@@ -20,9 +21,9 @@ import streamlit as st
 
 
 # @st.cache_resource
-@lru_cache
-def load_model():
-    return pickle.load(open("./res/models/model.pkl", "rb"))
+# @lru_cache
+def load_model(model_name:str=r"model01"):
+    return pickle.load(open(models[model_name], "rb"))
 
 def predict(data):
 
@@ -33,6 +34,6 @@ if __name__ == "__main__":
     import numpy as np
 
     start = time.perf_counter()
-    result = predict(np.array([[0.0, 0.0, 0.0, 0.0, 0.0]]))
+    result = predict(np.array([[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 'A', 'AAA', 'KK', 'SS']]))
     print(f"{100 * (time.perf_counter() - start):.2f} s")
     print(result.round(2))
