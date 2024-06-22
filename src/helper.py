@@ -3,6 +3,7 @@ from pydantic import BaseModel, ValidationError, conlist, conint, constr
 models = {
     "model01": "./res/models/model01.pkl",
     "model02": "./res/models/model02.pkl",
+    "model03": "./res/models/model03.pkl",
 }
 
 features: dict = {

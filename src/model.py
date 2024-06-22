@@ -1,4 +1,5 @@
 import pickle
+import joblib
 from functools import lru_cache
 import pandas as pd
 
@@ -7,7 +8,10 @@ from src.helper import models, features
 
 @lru_cache
 def load_model(model_name: str = r"model01"):
-    return pickle.load(open(models[model_name], "rb"))
+    if models[model_name].endswith(".pkl"):
+        return pickle.load(open(models[model_name], "rb"))
+    else:
+        return joblib.load(models[model_name])
 
 
 def predict(data):
