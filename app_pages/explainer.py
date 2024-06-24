@@ -12,9 +12,16 @@ with st.sidebar:
     else:
         model_name = "model01"
 model = load_model(model_name)
+importances = model_coefficients(model).round(2)
 
-left_col, middle_col, right_col = st.columns([1, 1, 1], gap="large")
+left_col, middle_col, right_col = st.columns(
+    [1, 1, 2], gap="medium", vertical_alignment="bottom"
+)
 with left_col:
     st.write(f"Number of Features: {model.n_features_in_}")
-    st.dataframe(model_coefficients(model).round(2))
+    # st.dataframe(importances)
+    st.bar_chart(
+        importances,
+        horizontal=True,
+    )
 st.write("---")
