@@ -10,8 +10,10 @@ from src.helper import models, features
 def load_model(model_name: str = r"model01"):
     if models[model_name].endswith(".pkl"):
         return pickle.load(open(models[model_name], "rb"))
-    else:
+    elif models[model_name].endswith(".joblib"):
         return joblib.load(models[model_name])
+    else:
+        raise ValueError
 
 
 def predict(data):

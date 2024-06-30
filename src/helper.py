@@ -4,6 +4,7 @@ models = {
     "model01": "./res/models/model01.pkl",
     "model02": "./res/models/model02.pkl",
     "model03": "./res/models/model03.pkl",
+    "model04": "./res/models/model04.joblib",
 }
 
 features: dict = {
