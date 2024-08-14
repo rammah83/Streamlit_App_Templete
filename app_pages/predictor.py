@@ -13,7 +13,6 @@ with st.sidebar:
     else:
         model_name = "model01"
 
-
 # set general Layout
 left_col, middle_col, right_col = st.columns(
     [1.5, 1, 1], gap="large", vertical_alignment="top"
