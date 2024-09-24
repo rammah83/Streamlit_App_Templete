@@ -5,7 +5,7 @@ from src.model import load_model
 from src.helper import features, DataToPredict, models
 
 
-st.title("Make Prediction")
+st.subheader("Make Prediction")
 
 with st.sidebar:
     if st.toggle("Choose Different Model"):

@@ -11,6 +11,11 @@ pages = {
         st.Page("./app_pages/predictor.py", title="Predictor", icon="🤖"),
         st.Page("./app_pages/explainer.py", title="Model Explainer", icon="🧮"),
     ],
+    "🎯Statistical Process Control": [
+        st.Page("./app_pages/spc.py", title="SPC", icon="📈"),
+        st.Page("./app_pages/spc_interactive.py", title="SPC Interactive", icon="📈"),
+
+    ],
 }
 
 pg = st.navigation(pages, position="sidebar")
