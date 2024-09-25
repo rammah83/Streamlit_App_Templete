@@ -115,14 +115,30 @@ if uploaded_file is not None:
                 st.stop()
         else:
             st.error('Invalid subgroup size.')
-        # Calculate process capability indices
+       # Calculate process capability indices
         try:
             Cp, Cpk, Cpu, Cpl = spc.calculate_process_capability(data, LSL, USL)
             st.subheader('Process Capability Indices')
-            st.write(f'**Cp:** {Cp:.4f}')
-            st.write(f'**Cpk:** {Cpk:.4f}')
-            st.write(f'**Cpu:** {Cpu:.4f}')
-            st.write(f'**Cpl:** {Cpl:.4f}')
+
+            # Determine process capability judgment
+            if Cp >= 1.33 and Cpk >= 1.33:
+                judgment = "Capable Process"
+                color = "🟢"  # Green circle emoji
+            elif Cp >= 1.00 and Cpk >= 1.00:
+                judgment = "Marginally Capable Process"
+                color = "🟠"  # Orange circle emoji
+            else:
+                judgment = "Not Capable Process"
+                color = "🔴"  # Red circle emoji
+
+            # Display judgment with color
+            st.markdown(f"#### {color} **{judgment}**")
+            # Display metrics in columns
+            st.metric(label="Cp", value=f"{Cp:.2f}")
+            st.metric(label="Cpk", value=f"{Cpk:.2f}")
+            st.metric(label="Cpu", value=f"{Cpu:.2f}")
+            st.metric(label="Cpl", value=f"{Cpl:.2f}")
+
         except Exception as e:
             st.error(f"Error calculating process capability indices: {e}")
 
